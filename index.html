@@ -1,0 +1,170 @@
+<!DOCTYPE html>
+<html lang="pt">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <title>FoodBox</title>
+
+    <style>
+      body {
+        background: lightgray;
+      }
+      .topo {
+        background: red;
+        color: white;
+        padding: 15px;
+        border-radius: 10px;
+      }
+      .produto {
+        border-style: solid;
+        border-width: 5px;
+        border-color: white;
+        background: white;
+        padding: 15px;
+        border-radius: 10px;
+        margin-bottom: 10px;
+      }
+      h1 {
+        margin: 0 0 10px 0;
+        text-align: center;
+      }
+      h2 {
+        margin: 0;
+        font-size: 18px;
+      }
+      h3 {
+        font-size: 30px;
+        margin-bottom: 5px;
+      }
+      h4 {
+        margin-top: 0;
+        margin-bottom: 5px;
+        font-size: 20px;
+      }
+      img {
+        width: 130px;
+        border-radius: 5px;
+        float: right;
+      }
+      .botao {
+        background-color: green;
+        font-size: 24px;
+        color: white;
+        border-radius: 25px;
+        padding: 10px;
+        text-align: center;
+      }
+
+      .caixinha:checked + .produto {
+        border-style: solid;
+        border-width: 5px;
+        border-color: blue;
+        display: block;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="topo">
+      <h1>FoodBox</h1>
+      <h2>Monte seu box e receba em 15 minutos!</h2>
+    </div>
+
+    <h3>Primeiro, seu prato</h3>
+    <div id="frango" class="produto" onclick="escolherFrango()">
+      <img src="imagens/frango.jpg" />
+      <h4>Frango Yin-Yang</h4>
+      <p>Um pouco de batata, um pouco de salada</p>
+      <p><strong>R$ 19,90</strong></p>
+    </div>
+    <div id="carne" class="produto" onclick="escolherCarne()">
+      <img src="imagens/carne.jpg" />
+      <h4>Carne e Salada</h4>
+      <p>Partida ao meio para parecer mais carne</p>
+      <p><strong>R$ 24,90</strong></p>
+    </div>
+    <h3>Agora, sua bebida</h3>
+    <div id="coca" class="produto" onclick="escolherCoca()">
+      <img src="imagens/coca.jpg" />
+      <h4>Coca-cola gelada</h4>
+      <p>Normal, zero ou stevia. Vai na sorte!</p>
+      <p><strong>R$ 5,90</strong></p>
+    </div>
+    <h3>Por fim, sua sobremesa</h3>
+    <div id="sorvete" class="produto" onclick="escolherSorvete()">
+      <img src="imagens/sorvete.jpg" />
+      <h4>Sorvete bem gelado</h4>
+      <p>Um sabor com calda dentro</p>
+      <p><strong>R$ 5,90</strong></p>
+    </div>
+
+    <h3>Sobremesas</h3>
+
+    <input class="caixinha" id="sobremesa1" type="checkbox" />
+    <div id="sorvete1" class="produto" onclick="escolherSorvete1()">
+      <label for="sobremesa1">
+        <img src="imagens/sorvete.jpg" />
+        <h4>Sorvete bem gelado</h4>
+        <p>Com calda por dentro.</p>
+        <p><strong>R$ 5,90</strong></p>
+      </label>
+    </div>
+
+    <input class="caixinha" id="sobremesa2" type="checkbox" />
+    <div id="sorvete2" class="produto" onclick="escolherSorvete1()">
+      <label for="sobremesa2">
+        <img src="imagens/sorvete.jpg" />
+        <h4>Sorvete bem gelado</h4>
+        <p>Com calda por dentro.</p>
+        <p><strong>R$ 5,90</strong></p>
+      </label>
+    </div>
+
+    <div class="botao" onclick="finalizarPedido()">
+      Finalizar pedido 😋
+    </div>
+
+    <script>
+      let prato;
+      let bebida;
+      let sobremesa;
+
+      function escolherFrango() {
+        document.getElementById("frango").style.borderColor = "green";
+        document.getElementById("carne").style.borderColor = "white";
+        prato = "frango";
+      }
+      function escolherCarne() {
+        document.getElementById("carne").style.borderColor = "green";
+        document.getElementById("frango").style.borderColor = "white";
+        prato = "carne";
+      }
+
+      function escolherCoca() {
+        document.getElementById("coca").style.borderColor = "green";
+        bebida = "coca";
+      }
+
+      function escolherSorvete() {
+        document.getElementById("sorvete").style.borderColor = "green";
+        sobremesa = "sorvete";
+      }
+      function escolherSorvete1() {
+        /* let selecao1 = document.getElementById("sobremesa1"); */
+        /* let selecao2 = document.getElementById("sobremesa2"); */
+        if (sobremesa1.checked) {
+          sobremesa = "sobremesa1";
+        }
+        /* if (selecao2.checked) {
+          sobremesa = "sobremesa2";
+        } */
+      }
+      function finalizarPedido() {
+        let mensagem;
+        mensagem = "Quero:" + prato + ", " + bebida + " e " + sobremesa;
+        alert(mensagem);
+        /* window.open("https://wa.me/5592993213172" + mensagem); */
+      }
+    </script>
+  </body>
+</html>
